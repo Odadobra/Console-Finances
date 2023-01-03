@@ -104,3 +104,15 @@ let calculateSum = (finances) => {
     return count;
 };
 console.log("Total: $" + calculateSum(finances));
+
+let calculateAverage = () => {
+    let changes = 0;
+    for (let i = 0; i < finances.length; i++) {
+        if (Array.isArray(finances[i]) && finances[i + 1]) {
+            //console.log(finances[i + 1][1] - finances[i][1]);
+            changes += finances[i + 1][1] - finances[i][1];
+        };
+    };
+    return changes / (finances.length - 1);
+};
+console.log("Average  Change: $" + calculateAverage().toFixed(2).slice(1, 8));
