@@ -90,10 +90,12 @@ let finances = [
 
 console.log("Financial Analysis");
 
+//Total number of months
 let length = finances.length
 
 console.log("Total Months: " + length);
 
+//Net ammount Profit/Losses
 let calculateSum = (finances) => {
     let count = 0;
     for (let i = 0; i < finances.length; i++) {
@@ -105,14 +107,38 @@ let calculateSum = (finances) => {
 };
 console.log("Total: $" + calculateSum(finances));
 
+//Average of changes in Profit/Losses over the entire period
 let calculateAverage = () => {
     let changes = 0;
     for (let i = 0; i < finances.length; i++) {
         if (Array.isArray(finances[i]) && finances[i + 1]) {
-            //console.log(finances[i + 1][1] - finances[i][1]);
             changes += finances[i + 1][1] - finances[i][1];
         };
     };
     return changes / (finances.length - 1);
 };
 console.log("Average  Change: $" + calculateAverage().toFixed(2).slice(1, 8));
+
+//Greatest increase in profit(date and amount) over the entire period
+let calculateMax = () => {
+    let changes = 0;
+    for (let i = 0; i < finances.length; i++) {
+        if (Array.isArray(finances[i]) && finances[i + 1]) {
+            changes += finances[i + 1][1] - finances[i][1];
+        };
+    };
+    return Math.max(changes);
+};
+console.log("Greatest Increase in Profits: " + calculateMax().toFixed(2).slice(1, 8));
+
+//Greatest decrease in profit(date and amount) over the entire period
+let calculateMin = () => {
+    let min = 0;
+    for (let i = 0; i < finances.length; i++) {
+        if (Array.isArray(finances[i]) && finances[i + 1]) {
+            min += finances[i + 1][1] - finances[i][1];
+        };
+    };
+    return Math.min(min);
+};
+console.log("Greatest Decrease in Profits: " + calculateMin().toFixed(2).slice(1, 8));
