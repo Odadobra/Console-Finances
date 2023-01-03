@@ -133,7 +133,7 @@ let calculateMax = () => {
     return maxProfit;
 };
 
-console.log("Greatest Increase in Profits: " + calculateMax());
+console.log("Greatest Increase in Profits: " + "$" + calculateMax());
 
 //Greatest decrease in profit(date and amount) over the entire period
 let calculateMin = () => {
@@ -149,5 +149,5 @@ let calculateMin = () => {
     return minProfit;
 };
 
-console.log("Greatest Increase in Profits: " + calculateMin());
+console.log("Greatest Decrease in Profits: " + "$" + calculateMin());
 //correct answer -2196167
