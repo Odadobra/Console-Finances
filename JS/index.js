@@ -117,37 +117,44 @@ let calculateAverage = () => {
     };
     return changes / (finances.length - 1);
 };
-console.log("Average  Change: $" + calculateAverage().toFixed(2).slice(1, 8));
+console.log("Average  Change: $" + calculateAverage().toFixed(2));
 
 //Greatest increase in profit(date and amount) over the entire period
 let calculateMax = () => {
     let maxProfit = 0;
+    let maxProfitMonth = "";
     for (let i = 1; i < finances.length; i++) {
         let profitDay = finances[i][1]
         let previousDay = finances[i - 1][1]
         let profit = profitDay - previousDay
         if (profit > maxProfit) {
             maxProfit = profit
+            maxProfitMonth = finances[i][0];
         }
     }
-    return maxProfit;
+    return [maxProfitMonth, maxProfit];
 };
 
-console.log("Greatest Increase in Profits: " + "$" + calculateMax());
+let maxMonthValue = calculateMax();
+
+console.log("Greatest Increase in Profits: " + maxMonthValue[0] + " $" + maxMonthValue[1]);
 
 //Greatest decrease in profit(date and amount) over the entire period
 let calculateMin = () => {
     let minProfit = 0;
+    let minProfitMonth = "";
     for (let i = 1; i < finances.length; i++) {
         let profitDay = finances[i][1]
         let previousDay = finances[i - 1][1]
         let profit = profitDay - previousDay
         if (profit < minProfit) {
             minProfit = profit
+            minProfitMonth = finances[i][0];
         }
     }
-    return minProfit;
+    return [minProfitMonth, minProfit];
 };
 
-console.log("Greatest Decrease in Profits: " + "$" + calculateMin());
-//correct answer -2196167
+let minMonthValue = calculateMin();
+
+console.log("Greatest Decrease in Profits: " + minMonthValue[0] + " $" + minMonthValue[1]);
