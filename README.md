@@ -19,4 +19,4 @@ MIT
 ## Link
 https://odadobra.github.io/Console-Finances/
 
-![Screenshot](./images/Screenshot%202023-01-03%20235552.jpg)
+![Screenshot](./images/readme%20screenshot.jpg)
